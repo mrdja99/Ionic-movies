@@ -1,0 +1,9 @@
+<ion-item>
+  <ion-item [routerLink]="['/','movie-offer','tabs','movie-explore', movie.id]">
+    <ion-avatar slot="start">
+      <ion-img [src]="movie.imageUrl"></ion-img>
+    </ion-avatar>
+    <ion-label>{{movie.title}}</ion-label>
+  </ion-item>
+  <ion-icon name="cart-outline" slot="end" (click)="openAlert($event)"></ion-icon>
+</ion-item>

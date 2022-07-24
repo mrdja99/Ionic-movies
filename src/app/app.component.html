@@ -1,3 +1,55 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="medium">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none">
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon routerLink="/movie-offer" name="videocam-outline" slot="start"></ion-icon>
+            <ion-label>Movie Offer</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon routerLink="/your-movies" name="cart-outline" slot="start"></ion-icon>
+            <ion-label>Your Movies</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="heart-outline" slot="start"></ion-icon>
+            <ion-label>Favorites</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="eye-outline" slot="start"></ion-icon>
+            <ion-label>Watchlist</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon routerLink="/profile" name="person-circle-outline" slot="start"></ion-icon>
+            <ion-label>Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item (click)="onLogOut()">
+            <ion-icon name="log-out-outline" slot="start" ></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+
+
 </ion-app>
