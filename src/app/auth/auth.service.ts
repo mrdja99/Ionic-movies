@@ -151,13 +151,10 @@ export class AuthService {
         );
       }),
       map((additionalUserData) => {
-        console.log('sdadsa');
         for (const key in additionalUserData) {
-          console.log('dsadsads');
           if (additionalUserData.hasOwnProperty(key)) {
             user1.firstN = additionalUserData[key].firstName;
             user1.lastN = additionalUserData[key].lastName;
-            console.log('sdads');
           }
         }
 

@@ -109,6 +109,27 @@ export class MovieOfferService {
     return this.movies.pipe(map(movies => movies.find((m: Movie) => m.id === id)));
   }
 
+
+  deleteMovie(movieId: string) {
+    return this.authService.token.pipe(
+      take(1),
+      switchMap((token) => {
+        return this.http
+        .delete(`https://mobilno-projekat-f2433-default-rtdb.europe-west1.firebasedatabase.app/movies/${movieId}.json?auth=${token}`
+        );
+      }),
+      switchMap(() => {
+        return this.movies;
+      }),
+      take(1),
+      tap((movies) => {
+        const newMovie = movies.filter(
+          (m) => m.id !== movieId
+        );
+        this._movies.next(newMovie);
+      })
+    );
+  }
 }
 
 

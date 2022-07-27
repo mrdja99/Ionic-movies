@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { MovieModalComponent } from '../movie-modal/movie-modal.component';
 import { Movie } from '../movie-model';
@@ -42,7 +42,7 @@ export class MovieExplorePage implements OnInit, OnDestroy {
   movies: Movie[];
   private movieSub: Subscription;
 
-  constructor(private movieOfferService: MovieOfferService, private modalCtrl: ModalController) {
+  constructor(private movieOfferService: MovieOfferService, private modalCtrl: ModalController, private loaddingCtrl: LoadingController) {
     console.log('constructor');
     //this.movies = this.movieOfferService.movies;
    }
@@ -79,6 +79,17 @@ export class MovieExplorePage implements OnInit, OnDestroy {
            console.log(movies);
         });
       }
+    });
+  }
+
+  onDeleteMovie(movieId: string) {
+    this.loaddingCtrl.create({
+      message: 'Deleting movie...',
+    }).then((loadingEl) => {
+      loadingEl.present();
+      this.movieOfferService.deleteMovie(movieId).subscribe(() => {
+        loadingEl.dismiss();
+      });
     });
   }
 

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Movie } from '../movie-model';
+import { MovieOfferService } from '../movie-offer.service';
 
 @Component({
   selector: 'app-movie-element',
@@ -11,9 +13,19 @@ export class MovieElementComponent implements OnInit {
 
   @Input() movie: Movie ;
 
-  constructor(private alertCtrl: AlertController) { }
 
-  ngOnInit() {}
+  constructor(
+    private alertCtrl: AlertController,
+    private loaddingCtrl: LoadingController,
+    private movieOfferService: MovieOfferService,
+    private router: Router
+    ) { }
+
+  ngOnInit(
+  ) {}
+
+  ionViewWillEnter() {
+  }
 
   openAlert(event) {
 
@@ -39,6 +51,15 @@ export class MovieElementComponent implements OnInit {
       alert.present();
     });
 
+  }
+
+  onCart($event) {
+    this.loaddingCtrl.create({
+      message: 'Reserving movie...',
+    }).then((loadingEl) => {
+      loadingEl.present();
+      loadingEl.dismiss();
+    });
   }
 
 
