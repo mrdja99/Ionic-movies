@@ -9,6 +9,7 @@ import { YourMoviesPageRoutingModule } from './your-movies-routing.module';
 import { YourMoviesPage } from './your-movies.page';
 import { YourMovieItemComponent } from './your-movie-item/your-movie-item.component';
 import { MovieOfferPage } from '../movie-offer.page';
+import { MovieElementComponent } from '../movie-element/movie-element.component';
 
 @NgModule({
   imports: [

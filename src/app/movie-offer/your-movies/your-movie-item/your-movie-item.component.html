@@ -1,9 +1,11 @@
-<ion-item  [routerLink]="['/','movie-offer','tabs','movie-explore', yourMovie.id]">
-  <ion-thumbnail slot="start">
-    <ion-img [src]="yourMovie.imageUrl"></ion-img>
-  </ion-thumbnail>
-  <ion-label>
-    <h1>{{ yourMovie.title }}</h1>
-  </ion-label>
-  <ion-icon name="close-outline" slot="end"></ion-icon>
+<ion-item>
+  <ion-item >
+    <ion-thumbnail slot="start">
+      <ion-img [src]="yourMovie.imageUrl"></ion-img>
+    </ion-thumbnail>
+    <ion-label>
+      <h1>{{ yourMovie.title }}</h1>
+    </ion-label>
+  </ion-item>
 </ion-item>
+

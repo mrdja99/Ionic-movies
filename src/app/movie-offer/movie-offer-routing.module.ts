@@ -27,6 +27,14 @@ const routes: Routes = [
   {
     path: 'your-movies',
     loadChildren: () => import('./your-movies/your-movies.module').then( m => m.YourMoviesPageModule)
+  },
+  {
+    path: 'favorite-movies',
+    loadChildren: () => import('./favorite-movies/favorite-movies.module').then( m => m.FavoriteMoviesPageModule)
+  },
+  {
+    path: 'watchlist',
+    loadChildren: () => import('./watchlist/watchlist.module').then( m => m.WatchlistPageModule)
   }
 ];
 

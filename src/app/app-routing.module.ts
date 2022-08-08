@@ -17,6 +17,14 @@ const routes: Routes = [
     loadChildren: () => import('./movie-offer/your-movies/your-movies.module').then( m => m.YourMoviesPageModule),
   },
   {
+    path: 'favorite-movies',
+    loadChildren: () => import('./movie-offer/favorite-movies/favorite-movies.module').then( m => m.FavoriteMoviesPageModule)
+  },
+  {
+    path: 'watchlist',
+    loadChildren: () => import('./movie-offer/watchlist/watchlist.module').then( m => m.WatchlistPageModule)
+  },
+  {
     path: '',
     redirectTo: 'log-in',
     pathMatch: 'full'

@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { switchMap, switchMapTo } from 'rxjs/operators';
 import { Movie } from '../movie-model';
 import { MovieOfferService } from '../movie-offer.service';
 
@@ -9,7 +10,7 @@ import { MovieOfferService } from '../movie-offer.service';
   templateUrl: './movie-element.component.html',
   styleUrls: ['./movie-element.component.scss'],
 })
-export class MovieElementComponent implements OnInit {
+export class MovieElementComponent implements OnInit, OnDestroy {
 
   @Input() movie: Movie ;
 
@@ -53,14 +54,25 @@ export class MovieElementComponent implements OnInit {
 
   }
 
-  onCart($event) {
+  onCart() {
     this.loaddingCtrl.create({
       message: 'Reserving movie...',
     }).then((loadingEl) => {
       loadingEl.present();
-      loadingEl.dismiss();
+      this.movieOfferService.addYourMovie(
+        this.movie.title,
+        this.movie.synopsys,
+        this.movie.imageUrl,
+        this.movie.director,
+        this.movie.actors
+      ).subscribe(() => {
+        loadingEl.dismiss();
+        this.router.navigate(['/your-movies']);
+      });
     });
   }
 
+  ngOnDestroy() {
+  }
 
 }
