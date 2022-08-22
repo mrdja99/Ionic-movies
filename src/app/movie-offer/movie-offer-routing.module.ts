@@ -12,6 +12,23 @@ const routes: Routes = [
         path: 'movie-explore',
         loadChildren: () => import('./movie-explore/movie-explore.module').then( m => m.MovieExplorePageModule)
       },
+      // {
+      //   path: 'your-movies',
+      //   loadChildren: () => import('./your-movies/your-movies.module').then( m => m.YourMoviesPageModule)
+      // },
+      // {
+      //   path: 'favorite-movies',
+      //   loadChildren: () => import('./favorite-movies/favorite-movies.module').then( m => m.FavoriteMoviesPageModule)
+      // },
+      // {
+      //   path: 'watchlist',
+      //   loadChildren: () => import('./watchlist/watchlist.module').then( m => m.WatchlistPageModule)
+      // },
+      // {
+      //   path: 'search',
+      //   loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+      // },
+
       {
         path: '',
         redirectTo: '/movie-offer/tabs/movie-explore',
@@ -23,18 +40,6 @@ const routes: Routes = [
     path: '',
     redirectTo: '/movie-offer/tabs/movie-explore',
     pathMatch: 'full'
-  },
-  {
-    path: 'your-movies',
-    loadChildren: () => import('./your-movies/your-movies.module').then( m => m.YourMoviesPageModule)
-  },
-  {
-    path: 'favorite-movies',
-    loadChildren: () => import('./favorite-movies/favorite-movies.module').then( m => m.FavoriteMoviesPageModule)
-  },
-  {
-    path: 'watchlist',
-    loadChildren: () => import('./watchlist/watchlist.module').then( m => m.WatchlistPageModule)
   }
 ];
 

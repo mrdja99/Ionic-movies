@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MovieExplorePageRoutingModule } from './movie-explore-routing.module';
+import { SearchPageRoutingModule } from './search-routing.module';
 
-import { MovieExplorePage } from './movie-explore.page';
+import { SearchPage } from './search.page';
+import { MovieOfferPage } from '../movie-offer.page';
 import { MovieElementComponent } from '../movie-element/movie-element.component';
-import { MovieModalComponent } from '../movie-modal/movie-modal.component';
 import { Ng2SearchPipeModule, Ng2SearchPipe } from 'ng2-search-filter';
 
 @NgModule({
@@ -16,10 +16,9 @@ import { Ng2SearchPipeModule, Ng2SearchPipe } from 'ng2-search-filter';
     CommonModule,
     FormsModule,
     IonicModule,
-    MovieExplorePageRoutingModule,
+    SearchPageRoutingModule,
     Ng2SearchPipeModule
   ],
-  declarations: [MovieExplorePage, MovieElementComponent, MovieModalComponent],
-  entryComponents: [MovieModalComponent]
+  declarations: [SearchPage, MovieOfferPage, MovieElementComponent]
 })
-export class MovieExplorePageModule {}
+export class SearchPageModule {}

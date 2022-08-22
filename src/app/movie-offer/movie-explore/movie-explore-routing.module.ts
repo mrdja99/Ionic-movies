@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MovieExplorePage } from './movie-explore.page';
 
+
 const routes: Routes = [
   {
     path: '',

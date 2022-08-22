@@ -1,6 +1,6 @@
 <ion-app>
 
-  <ion-menu side="start" menuId="first" contentId="main">
+  <ion-menu side="start" menuId="first" contentId="main" *ngIf="showTabs">
     <ion-header>
       <ion-toolbar color="medium">
         <ion-title>Menu</ion-title>
@@ -50,6 +50,28 @@
 
   <ion-router-outlet id="main"></ion-router-outlet>
 
+  <ion-tabs *ngIf="showTabs">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="movie-offer" routerLink="/movie-offer/tabs/movie-explore">
+        <ion-icon name="videocam-outline"></ion-icon>
+        <ion-label>Movie Offer</ion-label>
+      </ion-tab-button>
 
+      <!-- <ion-tab-button tab="search" routerLink="/search">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-label>Search</ion-label>
+      </ion-tab-button> -->
+
+      <ion-tab-button tab="your-movies" routerLink="/your-movies">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-label>Your Movies</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="profile" routerLink="/profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 
 </ion-app>

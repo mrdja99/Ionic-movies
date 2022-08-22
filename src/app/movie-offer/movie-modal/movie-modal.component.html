@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Add new movie</ion-title>
+    <ion-title>{{!title ? "Add new movie": "Edit movie"}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="onCancel()">
         <ion-icon name="close-outline"></ion-icon>
@@ -11,13 +11,13 @@
 
 <ion-content>
 
-  <form #f="ngForm" (ngSubmit)="onAddMovie()">
+  <form #f="ngForm" (ngSubmit)="!title? onAddMovie() : onUpdateMovie(id)">
     <ion-grid>
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">Movie Title</ion-label>
-            <ion-input type="text" ngModel name="title" required></ion-input>
+            <ion-input type="text" [ngModel]="title" name="title" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -26,7 +26,7 @@
         <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">Synopsys</ion-label>
-            <ion-textarea type="text" rows="6" ngModel name="synopsys" required></ion-textarea>
+            <ion-textarea type="text" rows="6" [ngModel]="synopsys" name="synopsys" required></ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -35,7 +35,7 @@
         <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">Director</ion-label>
-            <ion-input type="text" ngModel name="director" required></ion-input>
+            <ion-input type="text" [ngModel]= "director" name="director" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -44,7 +44,7 @@
         <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">Starring</ion-label>
-            <ion-input type="text" ngModel name="actors" required></ion-input>
+            <ion-input type="text" [ngModel]= "actors" name="actors" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -53,14 +53,14 @@
         <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">imgUrl</ion-label>
-            <ion-textarea type="text" rows="2" ngModel name="imageUrl" required></ion-textarea>
+            <ion-textarea type="text" rows="2" [ngModel]="imageUrl" name="imageUrl" required></ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
-          <ion-button type="submit" expand="block" [disabled]="f.invalid">Add</ion-button>
+          <ion-button type="submit" expand="block" [disabled]="f.invalid">{{!title ? 'Add' : 'Update'}}</ion-button>
         </ion-col>
       </ion-row>
 

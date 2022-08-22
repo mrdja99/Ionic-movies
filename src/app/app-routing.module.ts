@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./movie-offer/movie-offer.module').then( m => m.MovieOfferPageModule),
     //canLoad: [AuthGuard]
   },
-  {
+ {
     path: 'your-movies',
     loadChildren: () => import('./movie-offer/your-movies/your-movies.module').then( m => m.YourMoviesPageModule),
   },
@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'watchlist',
     loadChildren: () => import('./movie-offer/watchlist/watchlist.module').then( m => m.WatchlistPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./movie-offer/search/search.module').then( m => m.SearchPageModule)
   },
   {
     path: '',
